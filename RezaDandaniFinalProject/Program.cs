@@ -18,13 +18,13 @@ namespace Optimize_Building_Stone
             string jsonText = File.ReadAllText("C:\\Users\\rezad\\source\\repos\\Optimize Building Stone\\Optimize Building Stone\\Example\\InputLines.json");
 
             // Deserialize JSON to List<Line>
-            List<Line> lines = JsonConvert.DeserializeObject<List<Line>>(jsonText);
-            List<Line> tempLines = JsonConvert.DeserializeObject<List<Line>>(jsonText);
+            List<Line> lines = JsonConvert.DeserializeObject<List<Line>>(jsonText) ?? throw new NullReferenceException("lines file empty");
+            List<Line> tempLines = lines;
             List<Node> nodes = new List<Node>();
             List<Polygon> polygons = new List<Polygon>();
 
             //find nodes  and calculates slop
-            foreach (var line in lines)
+            foreach (var line in lines!)
             {
                 line.doTheThing();
                 foreach (var line1 in lines)

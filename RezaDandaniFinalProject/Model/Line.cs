@@ -11,8 +11,8 @@ namespace Optimize_Building_Stone.Model
     public class Line
     {
         public int Id { get; set; }
-        public Point startPoint { get; set; }
-        public Point endPoint { get; set; }
+        public Point? startPoint { get; set; }
+        public Point? endPoint { get; set; }
         //line formula by = ax + c => y = Ax + C
         // A = a/b   , C = c/b
         public double a { get; set; }
@@ -22,14 +22,14 @@ namespace Optimize_Building_Stone.Model
 
         public void doTheThing()
         {
-            if (startPoint.y == endPoint.y)
+            if (startPoint!.y == endPoint!.y)
             {
                 type = LineType.Horizontal;
                 a = 0;
                 b = 1;
                 c = endPoint.y;
             }
-            else if (startPoint.x == endPoint.x)
+            else if (startPoint!.x == endPoint!.x)
             {
                 type = LineType.Vertical;
                 a = 1;
@@ -46,7 +46,7 @@ namespace Optimize_Building_Stone.Model
 
         }
 
-        public Node CheckNode(Line line)
+        public Node? CheckNode(Line line)
         {
             if (a == line.a || (line.type == this.type && this.type != LineType.NonVerticalNonHorizontal))
             {
