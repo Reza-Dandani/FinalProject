@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Xml.Linq;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Optimize_Building_Stone.Model;
 
 namespace Optimize_Building_Stone
@@ -40,6 +36,10 @@ namespace Optimize_Building_Stone
                     }
                 }
             }
+            //find polygons
+
+
+
 
             var outputLines = JsonConvert.SerializeObject(lines);
             var outputNodes = JsonConvert.SerializeObject(nodes);
